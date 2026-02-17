@@ -1,0 +1,25 @@
+{
+  "name": "@kg/core",
+  "version": "1.0.0",
+  "description": "Core types and interfaces for Knowledge Graph Desktop",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "rdf",
+    "core",
+    "types"
+  ],
+  "author": "Knowledge Graph Team",
+  "license": "MIT",
+  "dependencies": {
+    "rdflib": "^2.2.33"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
+  }
+}

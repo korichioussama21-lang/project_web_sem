@@ -1,0 +1,47 @@
+{
+  "name": "knowledge-graph-desktop",
+  "version": "1.0.0",
+  "description": "Desktop Knowledge Graph Application - RDF/OWL Management with SPARQL & Reasoning",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/desktop",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "demo:rdf": "cd packages/rdf && npx ts-node demo/index.ts",
+    "demo:ontology": "cd packages/ontology && npx ts-node demo/index.ts",
+    "demo:sparql": "cd packages/sparql && npx ts-node demo/index.ts",
+    "demo:reasoning": "cd packages/reasoning && npx ts-node demo/index.ts",
+    "demo:viz": "npm run dev --workspace=packages/visualization",
+    "postinstall": "husky install || true"
+  },
+  "keywords": [
+    "knowledge-graph",
+    "rdf",
+    "sparql",
+    "owl",
+    "reasoning",
+    "semantic-web",
+    "electron"
+  ],
+  "author": "Knowledge Graph Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

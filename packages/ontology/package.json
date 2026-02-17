@@ -1,0 +1,28 @@
+{
+  "name": "@kg/ontology",
+  "version": "1.0.0",
+  "description": "Ontology Management module (OWL/RDFS)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "demo": "ts-node demo/index.ts",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "owl",
+    "rdfs",
+    "ontology"
+  ],
+  "author": "Membre B",
+  "license": "MIT",
+  "dependencies": {
+    "@kg/core": "file:../core",
+    "rdflib": "^2.2.33"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "rimraf": "^5.0.5"
+  }
+}

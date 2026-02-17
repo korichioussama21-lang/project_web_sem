@@ -1,0 +1,1 @@
+export { OntologyManager } from './OntologyManager';

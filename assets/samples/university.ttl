@@ -1,0 +1,110 @@
+@prefix : <http://example.org/university#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Ontology metadata
+: a owl:Ontology ;
+    rdfs:label "University Ontology" ;
+    rdfs:comment "Simple university domain ontology for demo purposes" .
+
+# Classes
+:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A human being" .
+
+:Student a owl:Class ;
+    rdfs:label "Student" ;
+    rdfs:subClassOf :Person ;
+    rdfs:comment "A person enrolled in courses" .
+
+:Professor a owl:Class ;
+    rdfs:label "Professor" ;
+    rdfs:subClassOf :Person ;
+    rdfs:comment "A person who teaches courses" .
+
+:GraduateStudent a owl:Class ;
+    rdfs:label "Graduate Student" ;
+    rdfs:subClassOf :Student ;
+    rdfs:comment "A student in a graduate program" .
+
+:UndergraduateStudent a owl:Class ;
+    rdfs:label "Undergraduate Student" ;
+    rdfs:subClassOf :Student ;
+    rdfs:comment "A student in an undergraduate program" .
+
+:Course a owl:Class ;
+    rdfs:label "Course" ;
+    rdfs:comment "An educational course" .
+
+:Department a owl:Class ;
+    rdfs:label "Department" ;
+    rdfs:comment "An academic department" .
+
+# Object Properties
+:teaches a owl:ObjectProperty ;
+    rdfs:label "teaches" ;
+    rdfs:domain :Professor ;
+    rdfs:range :Course .
+
+:enrolledIn a owl:ObjectProperty ;
+    rdfs:label "enrolled in" ;
+    rdfs:domain :Student ;
+    rdfs:range :Course .
+
+:belongsTo a owl:ObjectProperty ;
+    rdfs:label "belongs to" ;
+    rdfs:domain :Person ;
+    rdfs:range :Department .
+
+:hasSupervisor a owl:ObjectProperty ;
+    rdfs:label "has supervisor" ;
+    rdfs:domain :GraduateStudent ;
+    rdfs:range :Professor .
+
+# Datatype Properties
+:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name" ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal .
+
+:hasAge a owl:DatatypeProperty ;
+    rdfs:label "has age" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:integer .
+
+:courseCode a owl:DatatypeProperty ;
+    rdfs:label "course code" ;
+    rdfs:domain :Course ;
+    rdfs:range rdfs:Literal .
+
+# Sample instances
+:aliceSmith a :GraduateStudent ;
+    :hasName "Alice Smith" ;
+    :hasAge 24 ;
+    :enrolledIn :CS101, :CS202 ;
+    :belongsTo :ComputerScience ;
+    :hasSupervisor :profJones .
+
+:bobBrown a :UndergraduateStudent ;
+    :hasName "Bob Brown" ;
+    :hasAge 20 ;
+    :enrolledIn :CS101 ;
+    :belongsTo :ComputerScience .
+
+:profJones a :Professor ;
+    :hasName "Dr. Jones" ;
+    :hasAge 45 ;
+    :teaches :CS101, :CS202 ;
+    :belongsTo :ComputerScience .
+
+:CS101 a :Course ;
+    :courseCode "CS-101" ;
+    rdfs:label "Introduction to Computer Science" .
+
+:CS202 a :Course ;
+    :courseCode "CS-202" ;
+    rdfs:label "Data Structures" .
+
+:ComputerScience a :Department ;
+    rdfs:label "Computer Science Department" .

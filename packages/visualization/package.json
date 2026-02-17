@@ -1,0 +1,35 @@
+{
+  "name": "@kg/visualization",
+  "version": "1.0.0",
+  "description": "Graph Visualization components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "visualization",
+    "graph",
+    "cytoscape"
+  ],
+  "author": "Membre D",
+  "license": "MIT",
+  "dependencies": {
+    "@kg/core": "file:../core",
+    "cytoscape": "^3.28.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@types/cytoscape": "^3.19.16",
+    "rimraf": "^5.0.5"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}

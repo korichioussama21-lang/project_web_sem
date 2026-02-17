@@ -1,0 +1,29 @@
+{
+  "name": "@kg/sparql",
+  "version": "1.0.0",
+  "description": "SPARQL Query Engine module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "demo": "ts-node demo/index.ts",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "sparql",
+    "query",
+    "rdf"
+  ],
+  "author": "Membre C",
+  "license": "MIT",
+  "dependencies": {
+    "@kg/core": "file:../core",
+    "sparqljs": "^3.7.1"
+  },
+  "devDependencies": {
+    "@types/sparqljs": "^3.1.8",
+    "ts-node": "^10.9.2",
+    "rimraf": "^5.0.5"
+  }
+}

@@ -1,0 +1,70 @@
+@prefix : <http://example.org/family#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Classes with hierarchy
+:Person a rdfs:Class ;
+    rdfs:label "Person" .
+
+:Man a rdfs:Class ;
+    rdfs:label "Man" ;
+    rdfs:subClassOf :Person .
+
+:Woman a rdfs:Class ;
+    rdfs:label "Woman" ;
+    rdfs:subClassOf :Person .
+
+:Parent a rdfs:Class ;
+    rdfs:label "Parent" ;
+    rdfs:subClassOf :Person .
+
+:Father a rdfs:Class ;
+    rdfs:label "Father" ;
+    rdfs:subClassOf :Man, :Parent .
+
+:Mother a rdfs:Class ;
+    rdfs:label "Mother" ;
+    rdfs:subClassOf :Woman, :Parent .
+
+# Properties
+:hasParent a rdf:Property ;
+    rdfs:label "has parent" ;
+    rdfs:domain :Person ;
+    rdfs:range :Parent .
+
+:hasChild a rdf:Property ;
+    rdfs:label "has child" ;
+    rdfs:domain :Parent ;
+    rdfs:range :Person .
+
+:hasFather a rdf:Property ;
+    rdfs:label "has father" ;
+    rdfs:subPropertyOf :hasParent ;
+    rdfs:domain :Person ;
+    rdfs:range :Father .
+
+:hasMother a rdf:Property ;
+    rdfs:label "has mother" ;
+    rdfs:subPropertyOf :hasParent ;
+    rdfs:domain :Person ;
+    rdfs:range :Mother .
+
+# Sample family
+:John a :Father ;
+    rdfs:label "John" ;
+    :hasChild :Alice, :Bob .
+
+:Mary a :Mother ;
+    rdfs:label "Mary" ;
+    :hasChild :Alice, :Bob .
+
+:Alice a :Woman ;
+    rdfs:label "Alice" ;
+    :hasFather :John ;
+    :hasMother :Mary .
+
+:Bob a :Man ;
+    rdfs:label "Bob" ;
+    :hasFather :John ;
+    :hasMother :Mary .

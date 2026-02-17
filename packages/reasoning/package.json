@@ -1,0 +1,28 @@
+{
+  "name": "@kg/reasoning",
+  "version": "1.0.0",
+  "description": "Reasoning Engine module (RDFS/OWL)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "demo": "ts-node demo/index.ts",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "reasoning",
+    "inference",
+    "rdfs",
+    "owl"
+  ],
+  "author": "Responsable",
+  "license": "MIT",
+  "dependencies": {
+    "@kg/core": "file:../core"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "rimraf": "^5.0.5"
+  }
+}

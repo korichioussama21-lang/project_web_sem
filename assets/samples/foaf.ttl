@@ -1,0 +1,41 @@
+@prefix : <http://example.org/foaf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# People
+:Alice a foaf:Person ;
+    foaf:name "Alice Dupont" ;
+    foaf:age 30 ;
+    foaf:mbox <mailto:alice@example.org> ;
+    foaf:knows :Bob, :Charlie ;
+    foaf:based_near :Paris .
+
+:Bob a foaf:Person ;
+    foaf:name "Bob Martin" ;
+    foaf:age 25 ;
+    foaf:mbox <mailto:bob@example.org> ;
+    foaf:knows :Alice ;
+    foaf:based_near :Lyon .
+
+:Charlie a foaf:Person ;
+    foaf:name "Charlie Rousseau" ;
+    foaf:age 35 ;
+    foaf:mbox <mailto:charlie@example.org> ;
+    foaf:knows :Alice ;
+    foaf:interest :SemanticWeb, :AI .
+
+# Places
+:Paris a foaf:Document ;
+    rdfs:label "Paris" .
+
+:Lyon a foaf:Document ;
+    rdfs:label "Lyon" .
+
+# Topics
+:SemanticWeb a foaf:Document ;
+    rdfs:label "Semantic Web" .
+
+:AI a foaf:Document ;
+    rdfs:label "Artificial Intelligence" .
